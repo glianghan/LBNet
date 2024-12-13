@@ -1,0 +1,12 @@
+scipy
+numpy
+torch
+cvxpy
+tqdm
+matplotlib
+
+
+
+
+
+
