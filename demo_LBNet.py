@@ -20,9 +20,9 @@ from scipy.signal import convolve2d
 import scipy.io
 from tqdm import tqdm
 
-class L1NMF_Net(nn.Module):
+class LBNet(nn.Module):
     def __init__(self, layerNum, M, A, _a):
-        super(L1NMF_Net, self).__init__()
+        super(LBNet, self).__init__()
         R = np.size(M, 1)
         eig, _ = np.linalg.eig(M.T @ M)
         eig += 0.1
@@ -224,7 +224,7 @@ def train(lrD,layerNum, lr, train_data, test_data, nrtrain, A0, S0, X, A, s, SNR
     meanDistance = []
     meanDistance.append(0)
     rmse = 0
-    model = L1NMF_Net(args.layer_num, A0, S0, _a)
+    model = LBNet(args.layer_num, A0, S0, _a)
     model.to(device)
     criterion = nn.MSELoss(reduction='sum')
 
